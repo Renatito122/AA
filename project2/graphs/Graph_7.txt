@@ -1,0 +1,91 @@
+graph [
+  node [
+    id 0
+    label "0"
+    pos 7
+    pos 8
+    color "#708090"
+  ]
+  node [
+    id 1
+    label "1"
+    pos 2
+    pos 7
+    color "#90EE90"
+  ]
+  node [
+    id 2
+    label "2"
+    pos 1
+    pos 3
+    color "#708090"
+  ]
+  node [
+    id 3
+    label "3"
+    pos 6
+    pos 4
+    color "#A9A9A9"
+  ]
+  node [
+    id 4
+    label "4"
+    pos 4
+    pos 8
+    color "#D3D3D3"
+  ]
+  node [
+    id 5
+    label "5"
+    pos 7
+    pos 1
+    color "#4169E1"
+  ]
+  node [
+    id 6
+    label "6"
+    pos 3
+    pos 2
+    color "#A9A9A9"
+  ]
+  edge [
+    source 0
+    target 4
+  ]
+  edge [
+    source 0
+    target 1
+  ]
+  edge [
+    source 1
+    target 6
+  ]
+  edge [
+    source 1
+    target 3
+  ]
+  edge [
+    source 1
+    target 4
+  ]
+  edge [
+    source 2
+    target 3
+  ]
+  edge [
+    source 2
+    target 6
+  ]
+  edge [
+    source 3
+    target 4
+  ]
+  edge [
+    source 4
+    target 6
+  ]
+  edge [
+    source 5
+    target 6
+  ]
+]
