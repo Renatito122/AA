@@ -8,8 +8,7 @@ import networkx as nx
 class Main:
 	def __init__(self):
 		self.num_nodes, self.generate, self.show_graph, self.exhaustive,\
-			self.greedy, self.order_degree_heur, self.vizing_theorem,\
-			self.permutations, self.recoloring = self.check_arguments()
+			self.greedy, self.order_degree_heur, self.vizing_theorem, self.recoloring = self.check_arguments()
 		
 		self.graph_manager = Graph_Manager()
 		self.cn_calculator = ChromaticNumber_Calc()
@@ -23,11 +22,7 @@ class Main:
 			\n\t-n <Number of Nodes for the Graph to be used for any operation: int>\
 			\n\t-ge <Generate Graph>\
 			\n\t-e <Exhaustive M-coloring Search>\
-			\n\t-v <Vizing Theorem>\
-			\n\t-p <Permutations>\
 			\n\t-gr <Greedy Search>\
-			\n\t-o <Heuristic to order Edges>\
-			\n\t-r <Number of Times to Recolor Graph: int>\
 			\n\t-s <Show plot of graphs>")
 		sys.exit()
 
@@ -38,15 +33,11 @@ class Main:
 			usage=self.usage
 		)
 		arg_parser.add_argument('-help', action='store_true')
-		arg_parser.add_argument('-num_nodes', nargs=1, type=int, default=[4])
+		arg_parser.add_argument('-num_nodes', nargs=1, type=int, default=[40])
 		arg_parser.add_argument('-generate', action='store_true')
 		arg_parser.add_argument('-greedy', action='store_true')
 		arg_parser.add_argument('-exhaustive', action='store_true')
-		arg_parser.add_argument('-vizing_theorem', action='store_true')
 		arg_parser.add_argument('-show_graph', action='store_true')
-		arg_parser.add_argument('-order_degree_heur', action='store_true')
-		arg_parser.add_argument('-permutations', action='store_true')
-		arg_parser.add_argument('-recoloring', nargs=1, type=int, default=[0])
 
 		try:
 			args = arg_parser.parse_args()
@@ -58,7 +49,7 @@ class Main:
 
 		return args.num_nodes[0], args.generate, args.show_graph,\
 				args.exhaustive, args.greedy, args.order_degree_heur,\
-				args.vizing_theorem, args.permutations, args.recoloring[0]
+				args.vizing_theorem, args.recoloring[0]
 
 
 	def handle_args(self):
@@ -73,10 +64,6 @@ class Main:
 		if self.exhaustive:
 			self.handle_results(*self.cn_calculator.exhaustive_coloring(G, self.vizing_theorem),\
 				"Exhaustive" + ('_Vizing' if self.vizing_theorem else ''))
-		
-		if self.permutations:
-			self.handle_results(*self.cn_calculator.exhaustive_perms_coloring(G),\
-				"Exhaustive_Permutations")
 
 		if self.greedy:
 			self.handle_results(*self.cn_calculator.greedy_coloring(G, self.order_degree_heur, self.recoloring),\
