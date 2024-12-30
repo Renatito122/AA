@@ -1,5 +1,5 @@
-# AA
-Advanced Algorithms projects:
+# Advanced Algorithms Projects
+
 
 - Project 1: Exhaustive and greedy search algorithms for graph chromatic number problem; 
 - Project 2: Randomized algorithm for graph chromatic number problem;
